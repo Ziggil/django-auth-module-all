@@ -1,0 +1,112 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background-color: #0a1929;
+    color: #e0f2f1;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.container {
+    background-color: #132f4c;
+    padding: 60px 50px 50px 50px;  
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    max-width: 500px;              
+    width: 100%;
+    text-align: center;
+    border-left: 6px solid #2e7d32;
+    
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;                     
+}
+
+h2 {
+    color: #66bb6a;
+    font-size: 32px;             
+    font-weight: normal;
+    border-bottom: 3px solid #2e7d32;
+    padding-bottom: 18px;        
+    margin: 0;                     
+}
+
+p {
+    margin: 0;                   
+    font-size: 20px;              
+    color: #b2dfdb;
+    line-height: 1.6;       
+    padding: 6px 0;               
+}
+
+b {
+    color: #81c784;
+    font-weight: bold;
+    font-size: 22px;           
+}  
+
+.auth-link {
+    margin-top: 10px;
+    padding-top: 22px;             
+    border-top: 2px solid #1b4a6b;
+}
+
+.auth-link a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;            
+    padding: 12px 30px;          
+    border: 2px solid #2e7d32;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: inline-block;        
+}
+
+.auth-link a:hover {
+    background-color: #1b4a3a;
+    color: #ffffff;
+    border-color: #66bb6a;
+}
+
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 600px) {
+    .container {
+        padding: 35px 25px 30px 25px;
+        max-width: 100%;
+        gap: 14px;
+    }
+    
+    h2 {
+        font-size: 26px;
+        padding-bottom: 14px;
+    }
+    
+    p {
+        font-size: 17px;
+        padding: 4px 0;
+    }
+    
+    b {
+        font-size: 19px;
+    }
+    
+    .auth-link a {
+        font-size: 17px;
+        padding: 10px 22px;
+    }
+}

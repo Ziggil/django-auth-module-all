@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'auth_module/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Профиль пользователя</h2>
+        <p>Здравствуйте, <b>{{ request.user.username }}!</b></p>
+        <p>Логин: {{ request.user.username }}</p>
+        <p class="auth-link">
+            <a href="{% url 'logout' %}">Выйти</a>
+        </p>
+    </div>
+    <script src="{% static 'auth_module/js/main.js' %}"></script>
+</body>
+</html>

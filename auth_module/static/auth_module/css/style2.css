@@ -1,0 +1,419 @@
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: #0a0e17;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: 
+        radial-gradient(ellipse at 10% 20%, rgba(0, 200, 150, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(30, 80, 200, 0.05) 0%, transparent 50%);
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+    background: linear-gradient(145deg, #141b2d, #1a2332);
+    padding: 45px 40px 40px;
+    border-radius: 16px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 0 40px rgba(0, 200, 150, 0.03);
+    max-width: 420px;
+    width: 100%;
+    border: 1px solid rgba(0, 200, 150, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 200, 150, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.container:hover {
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.9),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08),
+        0 0 60px rgba(0, 200, 150, 0.05);
+    border-color: rgba(0, 200, 150, 0.15);
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+h2 {
+    text-align: center;
+    color: #e8f0f8;
+    margin-bottom: 32px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00c896, #1a5c9e);
+    border-radius: 2px;
+}
+
+/* ===== ФОРМА ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+form p {
+    margin-bottom: 8px;
+}
+
+/* ===== ПОЛЯ ВВОДА ===== */
+form label {
+    display: block;
+    font-weight: 500;
+    color: #8aa8c8;
+    margin-bottom: 6px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #1e2a3a;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #0d1421;
+    color: #d4e4f0;
+    outline: none;
+}
+
+form input::placeholder {
+    color: #3a4a5a;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #00c896;
+    background: #111a2a;
+    box-shadow: 0 0 0 4px rgba(0, 200, 150, 0.08), inset 0 0 20px rgba(0, 200, 150, 0.02);
+}
+
+form input:hover {
+    border-color: #2a3a4a;
+}
+
+/* ===== ОШИБКИ ===== */
+.errorlist {
+    list-style: none;
+    color: #ff6b8a;
+    font-size: 13px;
+    margin-top: 4px;
+    padding: 0;
+}
+
+.errorlist li {
+    background: rgba(255, 107, 138, 0.06);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #ff6b8a;
+    margin-bottom: 3px;
+}
+
+/* ===== КНОПКИ ===== */
+button[type="submit"] {
+    background: linear-gradient(135deg, #00c896, #0088a8);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 200, 150, 0.3);
+    background: linear-gradient(135deg, #00dba0, #0099b8);
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 200, 150, 0.2);
+}
+
+/* ===== КНОПКА ВЫХОДА (красная) ===== */
+.btn-danger {
+    background: linear-gradient(135deg, #ff6b8a, #c0395a);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 10px 30px rgba(255, 107, 138, 0.3);
+    background: linear-gradient(135deg, #ff7f9a, #d94464);
+}
+
+/* ===== КНОПКА ОТМЕНЫ ===== */
+.btn-secondary {
+    display: inline-block;
+    padding: 14px 20px;
+    background: #1e2a3a;
+    color: #8aa8c8;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #2a3a4a;
+    font-size: 16px;
+}
+
+.btn-secondary:hover {
+    background: #2a3a4a;
+    color: #b8d0e0;
+    transform: translateY(-2px);
+    border-color: #3a4a5a;
+}
+
+/* ===== ГРУППА КНОПОК (для выхода) ===== */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.button-group button,
+.button-group a {
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.button-group .btn-secondary {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* ===== ССЫЛКИ АВТОРИЗАЦИИ ===== */
+.auth-link {
+    text-align: center;
+    margin-top: 24px;
+    color: #5a7a8a;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-link a {
+    color: #00c896;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.auth-link a:hover {
+    color: #00dba0;
+    text-shadow: 0 0 20px rgba(0, 200, 150, 0.2);
+    background: rgba(0, 200, 150, 0.05);
+}
+
+/* ===== СЕПАРАТОР ===== */
+.auth-link::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 200, 150, 0.1), transparent);
+    margin-bottom: 16px;
+}
+
+/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.container {
+    animation: slideIn 0.5s ease;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px 25px;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form input {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* ===== СКРОЛЛБАР ===== */
+::-webkit-scrollbar {
+    width: 8px;
+    background: #0a0e17;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1421;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1a5c9e, #00c896);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1a6cae, #00dba0);
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ===== */
+
+/* Акцент при наведении на контейнер */
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00c896, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container:hover::after {
+    opacity: 1;
+}
+
+/* Стили для select (если используются) */
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #1e2a3a;
+    border-radius: 10px;
+    background: #0d1421;
+    color: #d4e4f0;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a6a8a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #00c896;
+    box-shadow: 0 0 0 4px rgba(0, 200, 150, 0.08);
+}
+
+select option {
+    background: #141b2d;
+    color: #d4e4f0;
+}
+
+/* Стили для checkbox и radio */
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+    accent-color: #00c896;
+    background: #0d1421;
+}
+
+/* Сообщения об успехе */
+.success-message {
+    background: rgba(0, 200, 150, 0.08);
+    border: 1px solid rgba(0, 200, 150, 0.2);
+    color: #00c896;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Сообщения об ошибке */
+.error-message {
+    background: rgba(255, 107, 138, 0.08);
+    border: 1px solid rgba(255, 107, 138, 0.2);
+    color: #ff6b8a;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
