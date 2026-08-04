@@ -1,0 +1,55 @@
+Это простое готовое django-приложение с регистрацией, авторизацией, выходом и профилем.
+
+Инстуркция по использованию(есть так же в самом приложении в папке inctruction):
+
+1. Вначале добавтье само приложение в INSTALLED_APPS в settings.py всего проекта:
+
+    'auth_module',
+
+
+
+2. В файл settings.py проекта в конце вписать: 
+
+    AUTH_MODULE_LOGIN_REDIRECT_URL = '/'
+    AUTH_MODULE_LOGOUT_REDIRECT_URL = '/'
+
+
+3.1. После в файле urls.py всего проекта указать url приложения auth_module:
+
+    path('auth/', include('auth_module.urls')),
+
+3.2. Страницы register, login, logout, profile искать по адресу http://127.0.0.1:8000/auth/...
+
+
+4. После провести миграции:
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+
+5. Запус сервера:
+
+    активация venv если надо:
+        cd venv/Scrpts/
+        cd actiavte
+        cd ../..
+    сd ваш_проект
+    python manage.py runserver
+
+Примечание1: в static/aiuth_module/css есть двай файла:
+
+    style.css - простой дизайн, написанный мной, бекендером
+    style2.css - дизайн, сделанный нейросетью
+    
+    во всех html шаблонах по умолчниаю применяется style.css
+
+Примечание2:
+
+    в views.py в logout_view и profile_view применятся скрипты, которые не позволяют не авторизованному пользователю войти на страницу profile и logout
+    вы можете удалить скрипты и просто применть декоратор @login_required над этими функциями, импорт этого декратора уже укзан в файле.
+
+
+Примечание3:
+
+    В этом приложении используются стандартные модели регистрации, логина и пользователя из Django.
+    Единственное в  UserProfile добовляется новое поле bio.
