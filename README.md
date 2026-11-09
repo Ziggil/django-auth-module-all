@@ -2,7 +2,7 @@
 
 Инстуркция по использованию(есть так же в самом приложении в папке inctruction):
 
-1. Вначале добавтье само приложение в INSTALLED_APPS в settings.py всего проекта:
+1. Вначале добавтье само приложение в INSTALLED_APPS в settings.py всего проекта(до этого достаньте auth_module из django-auth-module в папку своего проекта):
 
     'auth_module',
 
@@ -30,7 +30,7 @@
 5. Запус сервера:
 
     активация venv если надо:
-        cd venv/Scrpts/
+        cd venv/Scrpts/ или source venv/bin/activate
         cd actiavte
         cd ../..
     сd ваш_проект
